@@ -36,18 +36,20 @@ gmsh.model.geo.synchronize()
 
 #gmsh.model.addPhysicalGroup(1, [1, 2, 4], 5)
 #ps = gmsh.model.addPhysicalGroup(2, [1])
-gmsh.model.addPhysicalGroup(1, [1, 3], 1)  #wände
-gmsh.model.addPhysicalGroup(1, [2], 2)     #outlet      # { müsste, check das nochmal
-gmsh.model.addPhysicalGroup(1, [4], 3)     #inlet
-gmsh.model.addPhysicalGroup(1, [5, 6, 7, 8], 4)     #sind eine einheit, nur wand
+#gmsh.model.addPhysicalGroup(1, [1, 3], 1)  #wände [1,3]
+#gmsh.model.addPhysicalGroup(1, [2], 2)     #outlet      # { müsste, check das nochmal [2]
+#gmsh.model.addPhysicalGroup(1, [4], 3)     #inlet[4]
+#gmsh.model.addPhysicalGroup(1, [5, 6, 7, 8], 4)     #sind eine einheit, nur wand [5,6,7,8]
 
 
-gmsh.model.setPhysicalName(1, 1, "Wall")
-gmsh.model.setPhysicalName(1, 2, "Outlet")
-gmsh.model.setPhysicalName(1, 3, "Inlet")
-gmsh.model.setPhysicalName(2, 4, "Object")
+#gmsh.model.setPhysicalName(1, 1, "Wall")
+#gmsh.model.setPhysicalName(1, 2, "Outlet")
+#gmsh.model.setPhysicalName(1, 3, "Inlet")
+#gmsh.model.setPhysicalName(1, 4, "Object")
 
-gmsh.model.mesh.generate(3)
+
+gmsh.model.mesh.generate(2)
+
 gmsh.write("t1.msh")
 
 if '-nopopup' not in sys.argv:
