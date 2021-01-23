@@ -1,20 +1,29 @@
 import gmsh
 import sys
 
+# rectangle with quadratic hole
+
 gmsh.initialize()
 gmsh.model.add('t1')
 
-lc = 1e-1
+x = 30
+y = 10
+sizeQ = 2.5
+startQX = 5
+startQY = y/2 - sizeQ/2
+lc = 1e-0
+
+
 gmsh.model.geo.addPoint(0, 0, 0, lc, 1)
-gmsh.model.geo.addPoint(3, 0, 0, lc, 2)
-gmsh.model.geo.addPoint(3, 1, 0, lc, 3)
-gmsh.model.geo.addPoint(0, 1, 0, lc, 4)
+gmsh.model.geo.addPoint(x, 0, 0, lc, 2)
+gmsh.model.geo.addPoint(x, y, 0, lc, 3)
+gmsh.model.geo.addPoint(0, y, 0, lc, 4)
 
 #point for hole
-gmsh.model.geo.addPoint(1, .33, 0, lc, 5)
-gmsh.model.geo.addPoint(1.33, .33, 0, lc, 6)
-gmsh.model.geo.addPoint(1.33, 0.66, 0, lc, 7)
-gmsh.model.geo.addPoint(1, 0.66, 0, lc, 8)
+gmsh.model.geo.addPoint(startQX, startQY, 0, lc, 5)
+gmsh.model.geo.addPoint(startQX + sizeQ, startQY, 0, lc, 6)
+gmsh.model.geo.addPoint(startQX + sizeQ, startQY + sizeQ, 0, lc, 7)
+gmsh.model.geo.addPoint(startQX, startQY + sizeQ, 0, lc, 8)
 
 gmsh.model.geo.addLine(1, 2, 1)
 gmsh.model.geo.addLine(3, 2, 2)
