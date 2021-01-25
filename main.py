@@ -10,16 +10,15 @@ x = 30
 y = 10
 sizeQ = 2.5
 startQX = 5
-startQY = y/2 - sizeQ/2
-lc = 1e-0
-
+startQY = y / 2 - sizeQ / 2
+lc = 5e-1
 
 gmsh.model.geo.addPoint(0, 0, 0, lc, 1)
 gmsh.model.geo.addPoint(x, 0, 0, lc, 2)
 gmsh.model.geo.addPoint(x, y, 0, lc, 3)
 gmsh.model.geo.addPoint(0, y, 0, lc, 4)
 
-#point for hole
+# point for hole
 gmsh.model.geo.addPoint(startQX, startQY, 0, lc, 5)
 gmsh.model.geo.addPoint(startQX + sizeQ, startQY, 0, lc, 6)
 gmsh.model.geo.addPoint(startQX + sizeQ, startQY + sizeQ, 0, lc, 7)
@@ -30,7 +29,7 @@ gmsh.model.geo.addLine(3, 2, 2)
 gmsh.model.geo.addLine(3, 4, 3)
 gmsh.model.geo.addLine(4, 1, 4)
 
-#curves for hole
+# curves for hole
 gmsh.model.geo.addLine(5, 6, 5)
 gmsh.model.geo.addLine(7, 6, 6)
 gmsh.model.geo.addLine(7, 8, 7)
@@ -43,18 +42,18 @@ gmsh.model.geo.addPlaneSurface([1, 2], 1)
 
 gmsh.model.geo.synchronize()
 
-#gmsh.model.addPhysicalGroup(1, [1, 2, 4], 5)
-#ps = gmsh.model.addPhysicalGroup(2, [1])
-#gmsh.model.addPhysicalGroup(1, [1, 3], 1)  #wände [1,3]
-#gmsh.model.addPhysicalGroup(1, [2], 2)     #outlet      # { müsste, check das nochmal [2]
-#gmsh.model.addPhysicalGroup(1, [4], 3)     #inlet[4]
-#gmsh.model.addPhysicalGroup(1, [5, 6, 7, 8], 4)     #sind eine einheit, nur wand [5,6,7,8]
+# gmsh.model.addPhysicalGroup(1, [1, 2, 4], 5)
+# ps = gmsh.model.addPhysicalGroup(2, [1])
+# gmsh.model.addPhysicalGroup(1, [1, 3], 1)  #wände [1,3]
+# gmsh.model.addPhysicalGroup(1, [2], 2)     #outlet      # { müsste, check das nochmal [2]
+# gmsh.model.addPhysicalGroup(1, [4], 3)     #inlet[4]
+# gmsh.model.addPhysicalGroup(1, [5, 6, 7, 8], 4)     #sind eine einheit, nur wand [5,6,7,8]
 
 
-#gmsh.model.setPhysicalName(1, 1, "Wall")
-#gmsh.model.setPhysicalName(1, 2, "Outlet")
-#gmsh.model.setPhysicalName(1, 3, "Inlet")
-#gmsh.model.setPhysicalName(1, 4, "Object")
+# gmsh.model.setPhysicalName(1, 1, "Wall")
+# gmsh.model.setPhysicalName(1, 2, "Outlet")
+# gmsh.model.setPhysicalName(1, 3, "Inlet")
+# gmsh.model.setPhysicalName(1, 4, "Object")
 
 
 gmsh.model.mesh.generate(2)
