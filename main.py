@@ -6,11 +6,12 @@ import sys
 gmsh.initialize()
 gmsh.model.add('t1')
 
-x = 30
-y = 10
-sizeQ = 2.5
-startQX = 5
-startQY = y / 2 - sizeQ / 2
+x = 50
+y = 15
+sizeWQ = 3
+sizeHQ = 4
+startQX = 4
+startQY = y / 2 - sizeHQ / 2
 lc = 5e-1
 
 gmsh.model.geo.addPoint(0, 0, 0, lc, 1)
@@ -20,9 +21,9 @@ gmsh.model.geo.addPoint(0, y, 0, lc, 4)
 
 # point for hole
 gmsh.model.geo.addPoint(startQX, startQY, 0, lc, 5)
-gmsh.model.geo.addPoint(startQX + sizeQ, startQY, 0, lc, 6)
-gmsh.model.geo.addPoint(startQX + sizeQ, startQY + sizeQ, 0, lc, 7)
-gmsh.model.geo.addPoint(startQX, startQY + sizeQ, 0, lc, 8)
+gmsh.model.geo.addPoint(startQX + sizeWQ, startQY, 0, lc, 6)
+gmsh.model.geo.addPoint(startQX + sizeWQ, startQY + sizeHQ, 0, lc, 7)
+gmsh.model.geo.addPoint(startQX, startQY + sizeHQ, 0, lc, 8)
 
 gmsh.model.geo.addLine(1, 2, 1)
 gmsh.model.geo.addLine(3, 2, 2)
