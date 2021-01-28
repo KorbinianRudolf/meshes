@@ -6,12 +6,12 @@ import sys
 gmsh.initialize()
 gmsh.model.add('t1')
 
-x = 50
-y = 15
-sizeWQ = 3
-sizeHQ = 4
-startQX = 4
-startQY = y / 2 - sizeHQ / 2
+x = 10.6
+y = 2.7
+sizeWQ = 0.4
+sizeHQ = 0.65
+startQX = 0.7
+startQY = 1.0  # y / 2 - sizeHQ / 2
 lc = 5e-1
 
 gmsh.model.geo.addPoint(0, 0, 0, lc, 1)
